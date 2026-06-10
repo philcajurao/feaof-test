@@ -73,7 +73,6 @@ export default function Home() {
     <div className="relative bg-base-200">
       <Popup />
 
-
       {/* <div className="hero bg-base-200 h-[calc(100svh-4rem)]">
         <div className="hero-content flex-col lg:flex-row gap-x-16">
           <Image
@@ -122,7 +121,7 @@ export default function Home() {
 
               <p className="max-w-4xl text-sm sm:text-lg leading-relaxed text-gray-700">
                 Future Entrepreneurs of America Foundation is focused on developing,
-                guiding and mentoring young entrepreneurs ages <span className="font-bold">9-17 years old</span> by
+                guiding and mentoring young entrepreneurs ages <span className="font-bold">9-18 years old</span> by
                 providing age-appropriate training and activities to motivate them
                 to become successful entrepreneurs in the future.
               </p>
@@ -142,8 +141,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
 
         {/* <div>
           <div
@@ -196,6 +193,8 @@ export default function Home() {
           </div>
         </div> */}
 
+        
+
         <div className="py-24 overflow-hidden">
           <div className="grid place-items-center mb-16">
             <div className="relative">
@@ -211,7 +210,36 @@ export default function Home() {
           <ServicesCard />
         </div>
 
+        {/* Newsletter Section */}
+        <div className="py-24 border-t border-base-300">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <div className="relative inline-block mb-6">
+              <h2 className="font-black text-3xl sm:text-5xl tracking-tight text-base-content">
+                Stay <span className="text-accent">Updated</span>
+              </h2>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full" />
+            </div>
+            
+            <p className="text-sm sm:text-lg text-gray-600 max-w-xl mx-auto mb-10">
+              Subscribe to our newsletter to receive the latest updates on our programs, upcoming bootcamps, and success stories.
+            </p>
+
+            <form className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="input input-bordered w-full rounded-lg focus:border-accent focus:outline-none"
+                required 
+              />
+              <button type="submit" className="btn btn-accent w-full sm:w-auto rounded-lg px-8">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
         <RecentSponsors />
+
       </div>
     </div>
   );

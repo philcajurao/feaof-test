@@ -38,18 +38,6 @@ function Hero() {
   // --- UPDATED EVENTS DATA ---
   const upcomingEvents = [
     { 
-        id: "pickleball-tournament",
-        title: "Dink For a Cause - Pickleball Tournament", 
-        date: "18", 
-        month: "April",
-        year: "2026",
-        time: "2PM - 6PM",
-        location: "Dill Dinkers in Manassas Mall, 9071 Center St, #53, Manassas, VA 20110",
-        description: "Together we can play, have fun, and create opportunities for the next generation.",
-        flyerUrl: pickleball.src,
-        registrationUrl: "https://givebutter.com/c/Feoaf"
-    },
-    { 
         id: "summer-bootcamp",
         title: "Entrepreneurship Summer Bootcamp", 
         date: "15-19", 
@@ -133,7 +121,7 @@ function Hero() {
       {/* --- UPCOMING EVENTS SECTION --- */}
       <section id="events" className="bg-base-200 py-24 px-6 border-t border-base-300">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+          <div className="flex flex-col justify-between items-center mb-12 gap-4">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold italic">Upcoming Events</h2>
               <div className="h-1.5 w-24 bg-accent mt-2" />
@@ -143,12 +131,12 @@ function Hero() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {upcomingEvents.map((event) => (
               <Link 
                 key={event.id} 
                 href="/events"
-                className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-black/50 transition-all hover:border-accent hover:shadow-none shadow-2xl cursor-pointer"
+                className="group flex flex-col h-full w-sm mx-auto bg-white rounded-2xl overflow-hidden border border-black/50 transition-all hover:border-accent hover:shadow-none shadow-2xl cursor-pointer"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[4/3] overflow-hidden">

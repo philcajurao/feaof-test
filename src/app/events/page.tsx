@@ -3,6 +3,9 @@ import EventsBanner from "../components/banners/EventsBanner";
 import Image from "next/image";
 import CountDown from "../components/CountDown";
 
+// Import your pickleball asset for use in the static list
+import pickleball from "@/app/assets/events/pickleball.jpg";
+
 export const metadata: Metadata = {
   title: "Events | Future Entrepreneurs Of America Foundation",
   description:
@@ -38,15 +41,39 @@ export default function Events() {
         {/* --- Event List --- */}
         <div className="w-full max-w-6xl space-y-40">
 
-          {/* 1. CCWRC Outreach */}
+          {/* 1. Pickleball Tournament */}
+          <section className="flex flex-col lg:flex-row items-center gap-12 group">
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <span className="text-accent font-bold uppercase tracking-widest text-sm">April 18, 2026</span>
+              <h2 className="text-4xl font-black mt-3 mb-6 leading-tight text-neutral">Dink For a Cause - Pickleball Tournament</h2>
+              <p className="text-base-content/70 text-lg leading-relaxed">
+                Together we can play, have fun, and create opportunities for the next generation. Our community gathered at Dill Dinkers at Manassas Mall for friendly matches, local support, and networking.
+              </p>
+            </div>
+            <div className="lg:w-1/2">
+              <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl transform group-hover:rotate-2 transition-all duration-500">
+                <Image 
+                  src={pickleball} 
+                  alt="Dink For a Cause Pickleball Tournament Flyer" 
+                  fill 
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+              </div>
+            </div>
+          </section>
+
+          {/* 2. CCWRC Outreach */}
           <section className="flex flex-col lg:flex-row items-center gap-12 group">
             <div className="lg:w-1/2 order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-64 rounded-3xl overflow-hidden shadow-xl transform group-hover:-translate-y-2 transition-transform duration-500">
+                <div className="relative h-64 rounded-3xl overflow-hidden shadow-xl transform group-hover:rotate-2 transition-all duration-500">
                   <Image src="/events/church/IMG_3778.JPEG" alt="Outreach" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
-                <div className="relative h-64 mt-8 rounded-3xl overflow-hidden shadow-xl transform group-hover:translate-y-2 transition-transform duration-500">
+                <div className="relative h-64 mt-8 rounded-3xl overflow-hidden shadow-xl transform group-hover:-rotate-2 transition-all duration-500">
                   <Image src="/events/church/IMG_3795.JPEG" alt="Community Support" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
               </div>
             </div>
@@ -59,7 +86,7 @@ export default function Events() {
             </div>
           </section>
 
-          {/* 2. Spring Gala (Alternating side) */}
+          {/* 3. Spring Gala */}
           <section className="flex flex-col lg:flex-row items-center gap-24 group">
             <div className="lg:w-1/2 text-center lg:text-right">
               <span className="text-accent font-bold uppercase tracking-widest text-sm">April 2025</span>
@@ -80,15 +107,17 @@ export default function Events() {
             </div>
           </section>
 
-          {/* 3. Summer Bootcamp */}
+          {/* 4. Summer Bootcamp */}
           <section className="flex flex-col lg:flex-row items-center gap-12 group">
             <div className="lg:w-1/2">
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-72 rounded-[2rem] overflow-hidden shadow-xl border-2 border-base-200">
-                   <Image src="/events/church/IMG_3795.JPEG" alt="Kids Learning" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="relative h-72 rounded-[2rem] overflow-hidden shadow-xl transform group-hover:rotate-2 transition-all duration-500">
+                   <Image src="/events/summer_bootcamp_2025/summer_bootcamp_image_1.JPEG" alt="Kids Learning" fill className="object-cover" />
+                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
-                <div className="relative h-72 rounded-[2rem] overflow-hidden shadow-xl">
-                   <Image src="/events/church/IMG_3795.JPEG" alt="Kids Learning" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="relative h-72 rounded-[2rem] overflow-hidden shadow-xl transform group-hover:-rotate-2 transition-all duration-500">
+                   <Image src="/events/summer_bootcamp_2025/summer_bootcamp_image_2.JPEG" alt="Kids Learning" fill className="object-cover" />
+                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
               </div>
             </div>
@@ -101,7 +130,7 @@ export default function Events() {
             </div>
           </section>
 
-          {/* 4. Holiday Event (Now unified and styled like others) */}
+          {/* 5. Holiday Event */}
           <section className="flex flex-col lg:flex-row items-center gap-12 group">
             <div className="lg:w-1/2 text-center lg:text-right order-1 lg:order-1">
               <span className="text-accent font-bold uppercase tracking-widest text-sm">2024 - 2026 Tradition</span>
