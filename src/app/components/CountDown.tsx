@@ -167,7 +167,7 @@ export default function CountDown() {
                                 onClick={() => setSelectedEvent(event)} 
                                 className="group h-full cursor-pointer"
                             >
-                                <div className="card w-sm bg-base-100 shadow-xl overflow-hidden mx-auto rounded-3xl transition-all duration-300 hover:shadow-2xl border border-base-200 hover:-translate-y-2 h-full flex flex-col">
+                                <div className="card max-w-sm bg-base-100 shadow-xl overflow-hidden mx-auto rounded-3xl transition-all duration-300 hover:shadow-2xl border border-base-200 hover:-translate-y-2 h-full flex flex-col">
                                     <div className="relative p-6 pb-12 h-44 flex flex-col justify-center overflow-hidden">
                                         <img 
                                             src={event.flyerUrl} 

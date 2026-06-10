@@ -136,7 +136,7 @@ function Hero() {
               <Link 
                 key={event.id} 
                 href="/events"
-                className="group flex flex-col h-full w-sm mx-auto bg-white rounded-2xl overflow-hidden border border-black/50 transition-all hover:border-accent hover:shadow-none shadow-2xl cursor-pointer"
+                className="group flex flex-col h-full max-w-sm mx-auto bg-white rounded-2xl overflow-hidden border border-black/50 transition-all hover:border-accent hover:shadow-none shadow-2xl cursor-pointer"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[4/3] overflow-hidden">
