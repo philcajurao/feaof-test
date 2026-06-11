@@ -207,31 +207,29 @@ export default function SponsorshipOpportunities() {
 
   return (
     <div className="text-base-content bg-base-200 font-sans min-h-screen">
-      
+
       {/* Dynamic Tab Navigation Bar Container */}
       <div className={`pt-28 pb-8 flex justify-center ${activeTab === "sponsors" ? "bg-neutral" : "bg-neutral/98"}`}>
         <div className="tabs tabs-boxed bg-black/30 border border-white/10 p-1.5 rounded-xl flex gap-1">
-          
+
           {/* Sponsors Tab */}
-          <button 
+          <button
             onClick={() => setActiveTab("sponsors")}
-            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${
-              activeTab === "sponsors" 
-                ? "tab-active !bg-accent !text-black shadow-md" 
+            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${activeTab === "sponsors"
+                ? "tab-active !bg-accent !text-black shadow-md"
                 : "!text-white/60 bg-transparent"
-            }`}
+              }`}
           >
             Sponsors
           </button>
 
           {/* Partner with Us Tab */}
-          <button 
+          <button
             onClick={() => setActiveTab("packages")}
-            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${
-              activeTab === "packages" 
-                ? "tab-active !bg-accent !text-black shadow-md" 
+            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${activeTab === "packages"
+                ? "tab-active !bg-accent !text-black shadow-md"
                 : "!text-white/60 bg-transparent"
-            }`}
+              }`}
           >
             Partner with Us
           </button>
@@ -368,7 +366,7 @@ export default function SponsorshipOpportunities() {
         <>
           <section className="py-24 bg-neutral text-neutral-content relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-              
+
               <div className="mb-6 flex justify-center relative cursor-default group">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16 text-accent drop-shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1">
                   <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
@@ -412,18 +410,20 @@ export default function SponsorshipOpportunities() {
               {/* Bottom Call to Action and Integrated QR Code */}
               <div className="max-w-xl mx-auto border border-white/20 bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col sm:flex-row items-center gap-8 text-left">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-wide mb-2">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-wide mb-2 relative">
                     Partner With Us
+                    <span className="absolute -bottom-1 left-0 w-7/9 h-1 bg-accent rounded-full opacity-80" />
+
                   </h3>
-                  <p className="text-white/80 font-semibold text-sm leading-relaxed">
+                  <p className="text-white/80 font-semibold text-sm leading-relaxed mt-4">
                     Ready to make a difference? Scan the official QR code on your mobile device to join our mission.
                   </p>
                 </div>
-                <div className="w-36 h-36 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg shrink-0 border-4 border-accent relative overflow-hidden">
-                  <Image 
-                    src={qr} 
-                    alt="Sponsorship Registration QR Code" 
-                    fill 
+                <div className="w-36 h-36 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg shrink-0 border-4 relative overflow-hidden">
+                  <Image
+                    src={qr}
+                    alt="Sponsorship Registration QR Code"
+                    fill
                     className="object-contain p-1"
                   />
                 </div>

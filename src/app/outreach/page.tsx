@@ -18,8 +18,8 @@ export default function OutreachPage() {
     {
       id: "outreach-2026",
       year: "2026",
-      title: "Community Outreach 2026",
-      description: "Momories and milestones from our community impact initiatives, neighborhood workshops, and city engagement programs.",
+      title: "Community Outreach",
+      description: "Memories and milestones from our community impact initiatives, neighborhood workshops, and engagement programs.",
       // Gallery images allocated for 2026
       gallery: [
         { src: image2, alt: "Community workshop kickoff" },
@@ -48,7 +48,7 @@ export default function OutreachPage() {
         {/* Page Header */}
         <header className="mb-16">
           <Link href="/" className="text-sm font-semibold tracking-wider uppercase opacity-60 hover:opacity-100 transition-opacity">
-            ← Back to Programs
+            ← Back
           </Link>
           <h1 className="text-4xl font-black tracking-tight mt-3">
             COMMUNITY OUTREACH

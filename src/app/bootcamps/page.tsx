@@ -18,8 +18,8 @@ export default function BootcampsPage() {
     {
       id: "bootcamp-2025",
       year: "2025",
-      title: "Youth Innovation Bootcamp",
-      description: "A look back at our inaugural 2025 cohort covering product development, marketing systems, and advertising strategy.",
+      title: "Summer Bootcamp",
+      description: "A look back at our 2025 summer bootcamp covering product development, marketing systems, and advertising strategy.",
       // Gallery images allocated explicitly for 2025
       gallery: [
         { src: image1, alt: "Students collaborating on projects" },
@@ -48,11 +48,11 @@ export default function BootcampsPage() {
         {/* Page Header */}
         <header className="mb-16">
           <Link href="/" className="text-sm font-semibold tracking-wider uppercase opacity-60 hover:opacity-100 transition-opacity">
-            ← Back to Programs
+            ← Back
           </Link>
-          <h1 className="text-4xl font-black tracking-tight mt-3">
+          {/* <h1 className="text-4xl font-black tracking-tight mt-3">
             BOOTCAMP ARCHIVES
-          </h1>
+          </h1> */}
         </header>
 
         {/* Bootcamps List */}
@@ -63,7 +63,7 @@ export default function BootcampsPage() {
               {/* Info Label Row */}
               <div className="mb-8">
                 <span className="inline-block px-3 py-1 text-xs font-black tracking-widest uppercase rounded bg-base-200 mb-3">
-                  Cohort {camp.year}
+                  Year {camp.year}
                 </span>
                 <h2 className="text-3xl font-black tracking-wide">{camp.title}</h2>
                 <p className="text-base opacity-70 mt-2 max-w-3xl">{camp.description}</p>
