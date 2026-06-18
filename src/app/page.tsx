@@ -238,7 +238,7 @@ export default function Home() {
           </div>
         </div>
 
-        <RecentSponsors />
+        <RecentSponsors fadeTop={true} />
 
       </div>
     </div>

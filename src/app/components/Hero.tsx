@@ -66,16 +66,16 @@ function Hero() {
   return (
     <div className="flex flex-col w-full">
       {/* --- HERO SECTION --- */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-[calc(100dvh-4rem)] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Carousel
             plugins={plugin.current}
             opts={{ loop: true, duration: 50 }}
             className="h-full w-full"
           >
-            <CarouselContent className="h-screen m-0">
+            <CarouselContent className="h-full m-0">
               {heroImages.map((img, index) => (
-                <CarouselItem key={index} className="h-screen p-0">
+                <CarouselItem key={index} className="h-full p-0">
                   <Image
                     alt="Background Slide"
                     placeholder="blur"
@@ -93,27 +93,28 @@ function Hero() {
         <div className="absolute inset-0 z-10 bg-black/50" />
 
         <div className="relative z-20 max-w-4xl px-6 text-center text-white flex flex-col items-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg leading-tight">
             Empowering the Next Generation of Entrepreneurs
           </h1>
-          <p className="text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl drop-shadow-md">
+          <p className="text-sm sm:text-lg md:text-2xl mb-8 text-gray-100 max-w-2xl drop-shadow-md">
             From ideas to real businesses, Future Entrepreneurs of America equips 
             youth ages 9–18 with the skills and confidence to lead.
           </p>
           
           <Link href="/join">
-            <button className="btn btn-accent btn-lg px-12 shadow-xl hover:scale-105 transition-transform text-white">
+            <button className="btn btn-accent btn-md sm:btn-lg px-8 sm:px-12 shadow-xl hover:scale-105 transition-transform text-white">
               Join Now
             </button>
           </Link>
+        </div>
 
-          <div className="absolute -bottom-24 md:-bottom-32 flex flex-col items-center">
-             <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-accent mb-2">
-               Join our Upcoming Events Below
-             </p>
-             <div className="animate-bounce p-2 mt-8 bg-white/10 rounded-full backdrop-blur-md">
-                <ChevronDown className="w-6 h-6 text-white" />
-             </div>
+        {/* Scroll Indicator positioned relative to the screen height */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-accent mb-2">
+            Join our Upcoming Events Below
+          </p>
+          <div className="animate-bounce p-2 bg-white/10 rounded-full backdrop-blur-md">
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
         </div>
       </section>

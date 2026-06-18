@@ -5,16 +5,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 // --- Static Asset Imports ---
-import fhLogo from "@/app/assets/sponsors/FHC.png";
+import fhLogo from "@/app/assets/sponsors/FHC-black.png";
 import fhGrowthFundLogo from "@/app/assets/partners/fhGrowthFund.png";
-import fortuneLogo from "@/app/assets/sponsors/fts-full-bg.png";
+import fortuneLogo from "@/app/assets/sponsors/fts-full-black.png";
 import qr from "../assets/qr/donateQR.png";
 
 // --- Data Definitions ---
 
 const programs = [
   {
-    title: "Spring Festival",
+    title: "Youth Entrepreneurship Bootcamps",
     description: "Kids showcase their products and services in a festival type event. There would be various event vendors and would be expecting around 500 attendees.",
     image: "/events/church/IMG_3778.JPEG",
     icon: (
@@ -24,7 +24,7 @@ const programs = [
     ),
   },
   {
-    title: "Summer Bootcamp",
+    title: "Entrepreneurship Funding Program",
     description: "Various Successful Business Owners, Bankers, and Community Leaders get to speak and train the kids in different aspects of business and teach them entrepreneurship skills.",
     image: "/events/church/IMG_3795.JPEG",
     icon: (
@@ -34,7 +34,7 @@ const programs = [
     ),
   },
   {
-    title: "Cocktail for A Cause",
+    title: "Community Outreach Programs",
     description: "It’s a community event wherein we invite our sponsors to mingle and socialize with our community and have some fun in a little “Community Auction Fundraising”",
     image: "/events/holiday/IMG_4627.jpg",
     icon: (
@@ -44,7 +44,7 @@ const programs = [
     ),
   },
   {
-    title: "Holiday Event",
+    title: "Academic Scholarship Program",
     description: "It’s the year end event to celebrate with the kids and recognize their accomplishments for the year. As a sponsor, you will be invited to be one of the participants in the “SHARKTANK”.",
     image: "/events/church/IMG_3795.JPEG",
     icon: (
@@ -54,7 +54,7 @@ const programs = [
     ),
   },
   {
-    title: "Fall Gala Event",
+    title: "Sports Scholarship Program",
     description: "This gala celebrates our mission, honors the individuals who make our work possible, and raises vital support. Together, we gather to celebrate progress and show appreciation to our sponsors.",
     image: "/events/holiday/IMG_4364.JPEG",
     icon: (
@@ -200,36 +200,38 @@ export default function SponsorshipOpportunities() {
 
   // Reconfigured partners object array to support typography logos dynamically
   const partners = [
-    { name: "FH Growth Fund", logo: fhGrowthFundLogo, isPlaceholder: false },
+    { name: "FH Growth Fund", logo: fhGrowthFundLogo, isPlaceholder: false, url: "https://invest.fortunehomesteam.com/" },
     { name: "Roberts", logo: null, isPlaceholder: true },
-    { name: "Fortune Tech Solutions", logo: fortuneLogo, isPlaceholder: false }
+    { name: "Fortune Tech Solutions", logo: fortuneLogo, isPlaceholder: false, url: "https://www.fortunetechsolutions.net/" }
   ];
 
   return (
     <div className="text-base-content bg-base-200 font-sans min-h-screen">
-
+      
       {/* Dynamic Tab Navigation Bar Container */}
       <div className={`pt-28 pb-8 flex justify-center ${activeTab === "sponsors" ? "bg-neutral" : "bg-neutral/98"}`}>
         <div className="tabs tabs-boxed bg-black/30 border border-white/10 p-1.5 rounded-xl flex gap-1">
-
+          
           {/* Sponsors Tab */}
-          <button
+          <button 
             onClick={() => setActiveTab("sponsors")}
-            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${activeTab === "sponsors"
-                ? "tab-active !bg-accent !text-black shadow-md"
+            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${
+              activeTab === "sponsors" 
+                ? "tab-active !bg-accent !text-black shadow-md" 
                 : "!text-white/60 bg-transparent"
-              }`}
+            }`}
           >
             Sponsors
           </button>
 
           {/* Partner with Us Tab */}
-          <button
+          <button 
             onClick={() => setActiveTab("packages")}
-            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${activeTab === "packages"
-                ? "tab-active !bg-accent !text-black shadow-md"
+            className={`tab tab-md sm:tab-lg font-black uppercase tracking-widest px-8 h-12 !rounded-lg transition-all duration-150 ${
+              activeTab === "packages" 
+                ? "tab-active !bg-accent !text-black shadow-md" 
                 : "!text-white/60 bg-transparent"
-              }`}
+            }`}
           >
             Partner with Us
           </button>
@@ -366,7 +368,7 @@ export default function SponsorshipOpportunities() {
         <>
           <section className="py-24 bg-neutral text-neutral-content relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-
+              
               <div className="mb-6 flex justify-center relative cursor-default group">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16 text-accent drop-shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1">
                   <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
@@ -374,7 +376,7 @@ export default function SponsorshipOpportunities() {
               </div>
 
               <h2 className="text-3xl font-extrabold sm:text-5xl tracking-tight uppercase mb-4">
-                <span className="text-accent">Thank You</span> <span className="text-white">To Our Current Sponsors</span>
+                <span className="text-accent">Our</span> <span className="text-white"> Sponsors</span>
               </h2>
 
               <p className="text-white/70 mb-16 font-bold leading-relaxed max-w-2xl mx-auto text-lg">
@@ -382,48 +384,55 @@ export default function SponsorshipOpportunities() {
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-24">
-                {partners.map((partner, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 pr-6 rounded-xl border border-white/10 transition-all hover:border-accent hover:bg-white/10 group/logo">
-                    <div className="w-16 h-16 relative bg-white rounded-lg overflow-hidden shrink-0 shadow-sm flex items-center justify-center select-none">
-                      {partner.isPlaceholder ? (
-                        /* High-contrast geometric letter tile layout matching your brand styles */
-                        <div className="w-full h-full bg-neutral text-accent font-black text-2xl flex items-center justify-center tracking-tighter">
-                          R
-                        </div>
-                      ) : (
-                        <Image
-                          src={partner.logo!}
-                          alt={`${partner.name} logo`}
-                          fill
-                          className="object-contain p-2"
-                          unoptimized
-                        />
-                      )}
+                {partners.map((partner, i) => {
+                  const content = (
+                    <>
+                      <div className="w-16 h-16 relative bg-white rounded-lg overflow-hidden shrink-0 shadow-sm flex items-center justify-center select-none">
+                        {partner.isPlaceholder ? (
+                          /* High-contrast geometric letter tile layout matching your brand styles */
+                          <div className="w-full h-full bg-neutral text-accent font-black text-2xl flex items-center justify-center tracking-tighter">
+                            R
+                          </div>
+                        ) : (
+                          <Image
+                            src={partner.logo!}
+                            alt={`${partner.name} logo`}
+                            fill
+                            className="object-contain p-2"
+                            unoptimized
+                          />
+                        )}
+                      </div>
+                      <span className="font-black text-white leading-tight text-xl group-hover/logo:text-accent transition-colors">
+                        {partner.name}
+                      </span>
+                    </>
+                  );
+
+                  return partner.url ? (
+                    <Link href={partner.url} key={i} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 pr-6 rounded-xl border border-white/10 transition-all hover:border-accent hover:bg-white/10 group/logo">
+                      {content}
+                    </Link>
+                  ) : (
+                    <div key={i} className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 pr-6 rounded-xl border border-white/10 transition-all group/logo">
+                      {content}
                     </div>
-                    <span className="font-black text-white leading-tight text-xl group-hover/logo:text-accent transition-colors">
-                      {partner.name}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Bottom Call to Action and Integrated QR Code */}
-              <div className="max-w-xl mx-auto border border-white/20 bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col sm:flex-row items-center gap-8 text-left">
+              <div className="max-w-md mx-auto border border-white/20 bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col items-center gap-8 text-left">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-wide mb-2 relative">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-wide mb-2">
                     Partner With Us
-                    <span className="absolute -bottom-1 left-0 w-7/9 h-1 bg-accent rounded-full opacity-80" />
-
                   </h3>
-                  <p className="text-white/80 font-semibold text-sm leading-relaxed mt-4">
-                    Ready to make a difference? Scan the official QR code on your mobile device to join our mission.
-                  </p>
                 </div>
-                <div className="w-36 h-36 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg shrink-0 border-4 relative overflow-hidden">
-                  <Image
-                    src={qr}
-                    alt="Sponsorship Registration QR Code"
-                    fill
+                <div className="w-36 h-36 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg shrink-0 border-4 border-accent relative overflow-hidden">
+                  <Image 
+                    src={qr} 
+                    alt="Sponsorship Registration QR Code" 
+                    fill 
                     className="object-contain p-1"
                   />
                 </div>
@@ -438,9 +447,6 @@ export default function SponsorshipOpportunities() {
       <section className="py-24 bg-base-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="text-accent font-black tracking-widest uppercase text-sm mb-3 block">
-              Your sponsorship directly funds these impactful initiatives for our future leaders.
-            </span>
             <h2 className="text-4xl font-extrabold sm:text-5xl tracking-tight text-neutral uppercase">
               Programs You Support
             </h2>
@@ -473,9 +479,6 @@ export default function SponsorshipOpportunities() {
                     {program.title}
                   </h3>
                   <div className="w-12 h-1 bg-base-300 mb-4 rounded-full group-hover:bg-accent group-hover:w-16 transition-all duration-300"></div>
-                  <p className="text-neutral/70 leading-relaxed font-medium">
-                    {program.description}
-                  </p>
                 </div>
               </div>
             ))}

@@ -1,5 +1,7 @@
+"use client"
+
 import React from "react";
-import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 import { notFound } from "next/navigation";
 import { ArrowLeft, User, Sparkles } from "lucide-react";
 
@@ -147,6 +149,27 @@ const boardBios: Record<string, any> = {
       </p>
     ),
   },
+  "sol-sanchez": {
+    name: "Sol Sanchez",
+    role: "Youth Program Leader",
+    image: "",
+    content: (
+      <>
+        <p className="mb-5">
+          Sol Sanchez is the Youth Program Leader for the Future Entrepreneurs of America Foundation.
+          She is dedicated to empowering and guiding young minds as they discover their creative and entrepreneurial potential.
+        </p>
+        <p className="mb-5">
+          Through workshops, mentorship, and youth leadership development programs, Sol helps build confidence
+          in students to think outside the box and turn their ideas into action.
+        </p>
+        <p>
+          She supports the foundation's mission to bridge the gap between traditional classroom learning
+          and real-world experiences, helping young people grow into active contributors to their communities.
+        </p>
+      </>
+    ),
+  },
 };
 
 export default async function BoardMemberPage({
@@ -179,7 +202,7 @@ export default async function BoardMemberPage({
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 relative z-10">
-          <Link
+          <BackButton
             href="/about"
             className="inline-flex items-center text-white/80 hover:text-white mb-8 font-medium transition-all duration-200 group bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
           >
@@ -188,7 +211,7 @@ export default async function BoardMemberPage({
               className="mr-2 group-hover:-translate-x-1 transition-transform"
             />
             Back
-          </Link>
+          </BackButton>
         </div>
       </div>
 
@@ -204,12 +227,16 @@ export default async function BoardMemberPage({
               Added rounded-2xl for soft corners and h-[500px] to accommodate full height.
               object-contain ensures the whole person fits without being cut off.
             */}
-            <div className="w-full h-[400px] md:h-[550px] overflow-hidden border-8 border-white shadow-xl mb-8 bg-gray-200 flex-shrink-0 relative group rounded-2xl">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-contain md:object-cover transition-transform duration-500"
-              />
+            <div className="w-full h-[400px] md:h-[550px] overflow-hidden border-8 border-white shadow-xl mb-8 bg-gray-200 flex-shrink-0 relative group rounded-2xl flex items-center justify-center">
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-contain md:object-cover transition-transform duration-500"
+                />
+              ) : (
+                <User size={96} className="text-gray-400" />
+              )}
             </div>
 
             <h1 className="text-3xl font-extrabold text-gray-900 text-center mb-2 tracking-tight">

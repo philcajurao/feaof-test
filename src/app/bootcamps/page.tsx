@@ -2,15 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-
-// Importing your image assets
-import image1 from "../assets/latest_events/fe5.jpg";
-import image2 from "../assets/latest_events/create.jpg";
-import image3 from "../assets/latest_events/sm.jpeg";
-import image4 from "../assets/latest_events/ads.jpg";
-import image5 from "../assets/latest_events/interest.jpg"; 
-import image6 from "../assets/latest_events/scholar.jpg";  
+import BackButton from "../components/BackButton";
 
 export default function BootcampsPage() {
   // Static list of all bootcamps. You can seamlessly add 2026, 2027, etc., below.
@@ -18,16 +10,19 @@ export default function BootcampsPage() {
     {
       id: "bootcamp-2025",
       year: "2025",
-      title: "Summer Bootcamp",
-      description: "A look back at our 2025 summer bootcamp covering product development, marketing systems, and advertising strategy.",
+      title: "Youth Bootcamps",
       // Gallery images allocated explicitly for 2025
       gallery: [
-        { src: image1, alt: "Students collaborating on projects" },
-        { src: image2, alt: "Product ideation workshop" },
-        { src: image3, alt: "Social media strategy discussion" },
-        { src: image4, alt: "Advertising 101 presentation" },
-        { src: image5, alt: "Business funding pitch setup" },
-        { src: image6, alt: "Scholarship distribution" },
+        { src: "/events/summer_bootcamp_2025/IMG_0082-1.JPEG", alt: "Students presenting ideas" },
+        { src: "/events/summer_bootcamp_2025/IMG_0084.JPEG", alt: "Youth Bootcamp group photo" },
+        { src: "/events/summer_bootcamp_2025/IMG_0089.JPEG", alt: "Working on business concepts" },
+        { src: "/events/summer_bootcamp_2025/IMG_5541.JPEG", alt: "Interactive bootcamp session" },
+        { src: "/events/summer_bootcamp_2025/IMG_5549.JPEG", alt: "Student presentation" },
+        { src: "/events/summer_bootcamp_2025/IMG_5550.JPEG", alt: "Collaborative teamwork" },
+        { src: "/events/summer_bootcamp_2025/IMG_5551.JPEG", alt: "Pitch showcase" },
+        { src: "/events/summer_bootcamp_2025/IMG_5556.JPEG", alt: "Students receiving awards" },
+        { src: "/events/summer_bootcamp_2025/summer_bootcamp_image_1.JPEG", alt: "Group brainstorming" },
+        { src: "/events/summer_bootcamp_2025/summer_bootcamp_image_2.JPEG", alt: "Award recognition ceremony" },
       ]
     },
     /* FUTURE BOOTCAMPS CAN BE ADDED HERE:
@@ -35,7 +30,6 @@ export default function BootcampsPage() {
       id: "bootcamp-2026",
       year: "2026",
       title: "Summer Tech Bootcamp",
-      description: "Memories from our 2026 summer cohort.",
       gallery: []
     }
     */
@@ -47,12 +41,12 @@ export default function BootcampsPage() {
         
         {/* Page Header */}
         <header className="mb-16">
-          <Link href="/" className="text-sm font-semibold tracking-wider uppercase opacity-60 hover:opacity-100 transition-opacity">
+          <BackButton href="/programs" className="text-sm font-semibold tracking-wider uppercase opacity-60 hover:opacity-100 transition-opacity">
             ← Back
-          </Link>
-          {/* <h1 className="text-4xl font-black tracking-tight mt-3">
+          </BackButton>
+          <h1 className="text-4xl font-black tracking-tight mt-3">
             BOOTCAMP ARCHIVES
-          </h1> */}
+          </h1>
         </header>
 
         {/* Bootcamps List */}
@@ -66,30 +60,48 @@ export default function BootcampsPage() {
                   Year {camp.year}
                 </span>
                 <h2 className="text-3xl font-black tracking-wide">{camp.title}</h2>
-                <p className="text-base opacity-70 mt-2 max-w-3xl">{camp.description}</p>
               </div>
 
-              {/* 2025 Image Gallery Layout */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {camp.gallery.map((img, idx) => (
-                  <div 
-                    key={idx} 
-                    className="group relative h-64 w-full overflow-hidden rounded-2xl bg-base-200 border border-base-300 shadow-md transition-all duration-300 hover:shadow-xl"
-                  >
-                    <Image 
-                      src={img.src} 
-                      alt={img.alt}
-                      placeholder="blur"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    {/* Hover text label overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <p className="text-sm font-bold text-white tracking-wide">
-                        {img.alt}
-                      </p>
+              {/* Mosaic Photo Grid Collage */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 auto-rows-[240px]">
+                {camp.gallery.map((img, idx) => {
+                  let spanClass = "";
+                  const mod = idx % 10;
+                  if (mod === 0) {
+                    spanClass = "sm:col-span-2 sm:row-span-2";
+                  } else if (mod === 1) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  } else if (mod === 2) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  } else if (mod === 3) {
+                    spanClass = "sm:col-span-1 sm:row-span-2";
+                  } else if (mod === 4) {
+                    spanClass = "sm:col-span-2 sm:row-span-1";
+                  } else if (mod === 5) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  } else if (mod === 6) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  } else if (mod === 7) {
+                    spanClass = "sm:col-span-2 sm:row-span-2";
+                  } else if (mod === 8) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  } else if (mod === 9) {
+                    spanClass = "sm:col-span-1 sm:row-span-1";
+                  }
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`group relative overflow-hidden rounded-2xl bg-base-200 border border-base-300 shadow-md transition-all duration-300 hover:shadow-xl ${spanClass}`}
+                    >
+                      <Image 
+                        src={img.src} 
+                        alt={img.alt}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      />
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
             </section>

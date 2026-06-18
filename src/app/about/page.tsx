@@ -4,7 +4,7 @@ import Link from "next/link";
 import CompanyStory from "../components/CompanyStory";
 import MissionVision from "../components/MissionVision";
 import StoryBanner from "../components/banners/StoryBanner";
-import { Lightbulb, Rocket, Target, TrendingUp, Users, Briefcase } from "lucide-react";
+import { Lightbulb, Rocket, Target, TrendingUp, Users, Briefcase, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Future Entrepreneurs Of America Foundation",
@@ -164,28 +164,39 @@ export default function About() {
 
             {/* Youth Advisory Board */}
             <div className="bg-white rounded-3xl p-10 shadow-sm border-2 border-neutral/50">
-              <h4 className="text-2xl font-bold text-center text-neutral-900 mb-8">Youth Advisory Board</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+              <h4 className="text-2xl font-bold text-center text-neutral-900 mb-10">Youth Advisory Board</h4>
+              
+              {/* Sol Sanchez - Youth Program Leader Card */}
+              <div className="flex flex-col md:flex-row items-center gap-8 bg-neutral-50 p-6 md:p-8 rounded-2xl border border-neutral/50 max-w-3xl mx-auto mb-10">
+                <div className="flex flex-col md:flex-row items-center gap-8 w-full">
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white bg-neutral-100 flex-shrink-0 flex items-center justify-center text-neutral-400">
+                    <User className="w-12 h-12" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <span className="text-lg font-bold text-neutral-900 mb-1 block">Youth Program Leader</span>
+                    <h5 className="text-xs font-semibold text-neutral-400 mb-3 uppercase tracking-wider">Sol Sanchez</h5>
+                    <p className="text-neutral text-sm leading-relaxed">Dedicated to developing future leaders, guiding creative projects, and coordinating youth workshops to help young people discover their potential beyond traditional academics.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Newsletter / Content Team */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-neutral-200">
                 <div className="pt-4 md:pt-0">
-                  <h6 className="font-bold text-neutral-900 uppercase tracking-wider text-sm mb-3">Editor-in-Chief</h6>
-                  <ul className="text-neutral-400 text-xs font-semibold uppercase tracking-tighter space-y-1.5">
+                  <h6 className="font-bold text-neutral-900 uppercase tracking-wider text-sm mb-4">Editor-in-Chief</h6>
+                  <ul className="text-neutral-500 text-sm font-medium space-y-2">
                     <li>Aaron To</li>
-                    <li>Trevyn Summey</li>
+                    <li>Jayden Flannigan</li>
                   </ul>
                 </div>
-                <div className="pt-4 md:pt-0">
-                  <h6 className="font-bold text-neutral-900 uppercase tracking-wider text-sm mb-3">Content Creators</h6>
-                  <ul className="text-neutral-400 text-xs font-semibold uppercase tracking-tighter space-y-1.5">
+                <div className="pt-4 md:pt-0 md:pl-8">
+                  <h6 className="font-bold text-neutral-900 uppercase tracking-wider text-sm mb-4">Content Creators</h6>
+                  <ul className="text-neutral-500 text-sm font-medium space-y-2">
                     <li>Alyana Lam</li>
                     <li>Sophie Severson</li>
                     <li>Marko Lam</li>
                     <li>Aiden To</li>
-                  </ul>
-                </div>
-                <div className="pt-4 md:pt-0">
-                  <h6 className="font-bold text-neutral-900 uppercase tracking-wider text-sm mb-3">Youth Program Leader</h6>
-                  <ul className="text-neutral-400 text-xs font-semibold uppercase tracking-tighter space-y-1.5">
-                    <li>Sol Sanchez</li>
+                    <li>Colin To</li>
                   </ul>
                 </div>
               </div>
