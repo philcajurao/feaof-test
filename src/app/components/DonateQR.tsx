@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function DonateQR() {
   return (
-    <div className="flex flex-col relative py-24 text-center items-center space-y-4 py-16">
+    <div className="flex flex-col relative py-16 text-center items-center space-y-4">
       
 
       <p className="text-base-300">

@@ -56,7 +56,7 @@ const Footer = () => {
           />
         </nav>
         <nav className="order-3 md:order-2">
-          <p className="text-center">© 2025. All rights reserved.</p>
+          <p className="text-center">© {new Date().getFullYear()}. All rights reserved.</p>
         </nav>
         <nav className="order-1 md:order-3 justify-self-center md:justify-self-end">
           <div className="grid grid-flow-col gap-4">

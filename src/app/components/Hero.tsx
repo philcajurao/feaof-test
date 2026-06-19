@@ -110,7 +110,7 @@ function Hero() {
 
         {/* Scroll Indicator positioned relative to the screen height */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
-          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-accent mb-2">
+          <p className="text-xs sm:text-sm font-bold uppercase text-center tracking-[0.2em] text-accent mb-8">
             Join our Upcoming Events Below
           </p>
           <div className="animate-bounce p-2 bg-white/10 rounded-full backdrop-blur-md">

@@ -109,9 +109,10 @@ export default function Home() {
 
       {/* Sections */}
       <div>
-        <div className="grid lg:grid-cols-2 py-24 max-w-7xl mx-auto">
-          <div className="flex flex-col items-center justify-center px-10 sm:px-0 lg:pt-0">
-            <div className="w-full max-w-4xl">
+        <div className="py-24 max-w-7xl mx-auto px-10">
+          {/* Who We Are Text */}
+          <div className="flex flex-col items-center justify-center mb-12">
+            <div className="w-full max-w-3xl text-center">
               {/* Title Container */}
               <h2 className="relative font-black text-2xl sm:text-5xl mb-8 inline-block">
                 Who we are?
@@ -119,7 +120,7 @@ export default function Home() {
                 <span className="absolute -bottom-2 left-0 w-1/3 h-2 bg-accent rounded-full opacity-80" />
               </h2>
 
-              <p className="max-w-4xl text-sm sm:text-lg leading-relaxed text-gray-700">
+              <p className="text-sm sm:text-lg leading-relaxed text-gray-700">
                 Future Entrepreneurs of America Foundation is focused on developing,
                 guiding and mentoring young entrepreneurs ages <span className="font-bold">9-18 years old</span> by
                 providing age-appropriate training and activities to motivate them
@@ -128,17 +129,16 @@ export default function Home() {
             </div>
           </div>
 
-         <div className="px-4 sm:px-0 py-10">
-            <div className="rounded-xl shadow-xl border-accent border-6 w-auto h-82 max-w-lg mx-auto">
-              <iframe
-                className="rounded w-full h-full"
-                src="https://www.youtube.com/embed/hmZ4jqj-9u8?si=9rpBtlIbieyYzPte&amp;controls=0"
-                title="Future Entrepreneurs Introduction"
-                allow="autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
-            </div>
+          {/* YouTube Video — full width of the section */}
+          <div className="w-full max-w-5xl mx-auto aspect-video rounded-xl shadow-xl border-accent border-6 overflow-hidden">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/hmZ4jqj-9u8?si=9rpBtlIbieyYzPte&amp;controls=0"
+              title="Future Entrepreneurs Introduction"
+              allow="autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
 

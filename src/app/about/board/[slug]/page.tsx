@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import BackButton from "@/app/components/BackButton";
 import { notFound } from "next/navigation";

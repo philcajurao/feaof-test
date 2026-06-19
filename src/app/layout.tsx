@@ -6,6 +6,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 import PreResources from "@/lib/preresources";
 import NavigationTracker from "./components/NavigationTracker";
+import type { ReactNode } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

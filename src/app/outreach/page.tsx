@@ -12,10 +12,10 @@ export default function OutreachPage() {
       title: "Community Outreach",
       // Gallery images allocated for Community Outreach
       gallery: [
-        { src: "/events/outreach images/DSC08222.JPG", alt: "Christian Center of World Restoration Outreach" },
-        { src: "/events/outreach images/DSC08223.JPG", alt: "Outreach Team Gathering" },
-        { src: "/events/outreach images/DSC08233.JPG", alt: "Outreach Event Group" },
-        { src: "/events/outreach images/IMG_3795.JPEG", alt: "Community Outreach Team" },
+        { src: "/events/outreach images/DSC08222.JPG", alt: "Christian Center of World Restoration Outreach", sizes: "(max-width: 640px) 100vw, 66vw" },
+        { src: "/events/outreach images/DSC08223.JPG", alt: "Outreach Team Gathering", sizes: "(max-width: 640px) 100vw, 33vw" },
+        { src: "/events/outreach images/DSC08233.JPG", alt: "Outreach Event Group", sizes: "(max-width: 640px) 100vw, 33vw" },
+        { src: "/events/outreach images/IMG_3795.JPEG", alt: "Community Outreach Team", sizes: "(max-width: 640px) 100vw, 66vw" },
       ]
     }
   ];
@@ -56,7 +56,7 @@ export default function OutreachPage() {
                   } else if (idx === 1) {
                     spanClass = "sm:col-span-1 sm:row-span-1";
                   } else if (idx === 2) {
-                    spanClass = "sm:col-span-1 sm:row-span-2";
+                    spanClass = "row-span-2 sm:col-span-1 sm:row-span-2";
                   } else if (idx === 3) {
                     spanClass = "sm:col-span-2 sm:row-span-1";
                   }
@@ -69,6 +69,9 @@ export default function OutreachPage() {
                         src={img.src} 
                         alt={img.alt}
                         fill
+                        sizes={img.sizes}
+                        priority={idx === 0}
+                        loading={idx === 0 ? "eager" : "lazy"}
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       />
                     </div>

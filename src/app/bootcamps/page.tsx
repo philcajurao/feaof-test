@@ -97,6 +97,11 @@ export default function BootcampsPage() {
                         src={img.src} 
                         alt={img.alt}
                         fill
+                        sizes={
+                          [0, 4, 7].includes(mod)
+                            ? "(max-width: 640px) 100vw, 66vw"
+                            : "(max-width: 640px) 100vw, 33vw"
+                        }
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       />
                     </div>

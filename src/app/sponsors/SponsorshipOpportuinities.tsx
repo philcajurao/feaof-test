@@ -16,7 +16,7 @@ const programs = [
   {
     title: "Youth Entrepreneurship Bootcamps",
     description: "Kids showcase their products and services in a festival type event. There would be various event vendors and would be expecting around 500 attendees.",
-    image: "/events/church/IMG_3778.JPEG",
+    image: "/events/summer_bootcamp_2025/IMG_0084.JPEG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
@@ -26,7 +26,7 @@ const programs = [
   {
     title: "Entrepreneurship Funding Program",
     description: "Various Successful Business Owners, Bankers, and Community Leaders get to speak and train the kids in different aspects of business and teach them entrepreneurship skills.",
-    image: "/events/church/IMG_3795.JPEG",
+    image: "/events/holiday/IMG_4364.JPEG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.438 4.438 0 002.946 2.946 4.493 4.493 0 004.306-1.758q.161-.253.298-.521" />
@@ -36,7 +36,7 @@ const programs = [
   {
     title: "Community Outreach Programs",
     description: "It’s a community event wherein we invite our sponsors to mingle and socialize with our community and have some fun in a little “Community Auction Fundraising”",
-    image: "/events/holiday/IMG_4627.jpg",
+    image: "/events/outreach images/DSC08222.JPG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -46,7 +46,7 @@ const programs = [
   {
     title: "Academic Scholarship Program",
     description: "It’s the year end event to celebrate with the kids and recognize their accomplishments for the year. As a sponsor, you will be invited to be one of the participants in the “SHARKTANK”.",
-    image: "/events/church/IMG_3795.JPEG",
+    image: "/events/academics/IMG_5544.JPEG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
@@ -56,7 +56,7 @@ const programs = [
   {
     title: "Sports Scholarship Program",
     description: "This gala celebrates our mission, honors the individuals who make our work possible, and raises vital support. Together, we gather to celebrate progress and show appreciation to our sponsors.",
-    image: "/events/holiday/IMG_4364.JPEG",
+    image: "/events/sports/IMG_5376.JPEG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0116.27 9.728m-8.54-5.492a46.327 46.327 0 005.418 0M12 11.25v.375m-7.166 3.9c.33.328.675.642 1.034.93M20.166 15.525c-.33.328-.675.642-1.034.93" />
