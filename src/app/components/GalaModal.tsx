@@ -52,7 +52,7 @@ export default function GalaModal({ onClose }: GalaModalProps) {
               alt="A Gala to Remember flyer"
               width={600}
               height={850}
-              className="w-full md:w-auto h-auto block max-h-[60vh] md:max-h-[90vh] object-contain object-left"
+              className="w-full md:w-auto h-auto block md:max-h-[90vh] object-contain md:object-left"
               priority
             />
           </div>
@@ -62,7 +62,7 @@ export default function GalaModal({ onClose }: GalaModalProps) {
             <div className="md:absolute md:inset-0 p-8 md:p-12 flex flex-col overflow-y-auto">
 
               <div>
-                <div className="badge badge-accent badge-lg font-bold uppercase tracking-wider mb-4 border-none text-white shadow-md">
+                <div className="badge badge-accent badge-lg font-bold uppercase tracking-wider mb-4 border-none text-white shadow-md h-14">
                   October 17, 2026 &nbsp;·&nbsp; Black-Tie Gala
                 </div>
 
