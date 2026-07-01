@@ -95,6 +95,7 @@ export default function CountDown() {
             {showHolidayCard && (
                 <div className={`card w-full max-w-3xl bg-base-100 shadow-2xl overflow-hidden rounded-3xl group transition-all duration-1000 border border-base-200 fade-in-section ${showUpcomingEvents ? '-mt-8' : 'mt-0'}`}>
                     <div className="relative p-8 sm:p-10 pb-16 overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
                             alt="Holiday Event Background"
@@ -175,6 +176,7 @@ export default function CountDown() {
 
                                     {/* Flyer image — top visual */}
                                     <div className="relative w-full h-72 sm:h-80 flex-shrink-0 overflow-hidden">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={event.flyerUrl}
                                             alt={event.title}
@@ -252,6 +254,7 @@ export default function CountDown() {
 
                         {/* Image Section */}
                         <div className="w-full md:w-auto md:max-w-[55%] shrink-0 border-b md:border-b-0 md:border-r border-base-200 bg-base-100 flex">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={selectedEvent.flyerUrl}
                                 alt={selectedEvent.title}
@@ -292,7 +295,7 @@ export default function CountDown() {
                                 {/* --- REGISTER BUTTON (Updated to use dynamic URL) --- */}
                                 <div className="mt-auto pt-6 border-t border-base-200">
                                     {/* Make sure 'registrationUrl' is added to your EventData interface and data objects */}
-                                    <Link href={(selectedEvent as any).registrationUrl || "#"} target="_blank" className="w-full">
+                                    <Link href={selectedEvent.registrationUrl || "#"} target="_blank" className="w-full">
                                         <button className="btn btn-accent w-full py-4 h-auto rounded-2xl text-lg font-bold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                                             Register Now
                                         </button>

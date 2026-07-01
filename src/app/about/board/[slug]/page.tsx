@@ -3,8 +3,15 @@ import BackButton from "@/app/components/BackButton";
 import { notFound } from "next/navigation";
 import { ArrowLeft, User, Sparkles } from "lucide-react";
 
+interface BoardMemberBio {
+  name: string;
+  role: string;
+  image: string;
+  content: React.ReactNode;
+}
+
 // Bio Data
-const boardBios: Record<string, any> = {
+const boardBios: Record<string, BoardMemberBio> = {
   "mary-rose-lam": {
     name: "Mary Rose Lam",
     role: "Founder, President",
@@ -150,20 +157,15 @@ const boardBios: Record<string, any> = {
   "sol-sanchez": {
     name: "Sol Sanchez",
     role: "Youth Program Leader",
-    image: "",
+    image: "/board/sol-sanchez.jpg",
     content: (
       <>
-        <p className="mb-5">
-          Sol Sanchez is the Youth Program Leader for the Future Entrepreneurs of America Foundation.
-          She is dedicated to empowering and guiding young minds as they discover their creative and entrepreneurial potential.
-        </p>
-        <p className="mb-5">
-          Through workshops, mentorship, and youth leadership development programs, Sol helps build confidence
-          in students to think outside the box and turn their ideas into action.
-        </p>
         <p>
-          She supports the foundation's mission to bridge the gap between traditional classroom learning
-          and real-world experiences, helping young people grow into active contributors to their communities.
+          Sol Sanchez is an entrepreneur at a very young age. She co-owns La Pulpería HN504
+          in Springfield, Virginia, and founded Sol&apos;s Digital Co., a digital branding agency.
+          She began with Future Entrepreneurs of America Foundation as a volunteer translator
+          and now leads the organization&apos;s youth e-newsletter on financial literacy and
+          entrepreneurship and the youngest board member in the organization.
         </p>
       </>
     ),
@@ -187,14 +189,17 @@ export default async function BoardMemberPage({
       {/* Decorative Hero Banner */}
       <div className="w-full h-[350px] bg-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 flex flex-wrap justify-center content-start gap-16 p-8 pointer-events-none">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <img
-              key={i}
-              src="/logo.png"
-              alt=""
-              className="w-20 h-20 object-contain select-none"
-            />
-          ))}
+          {Array.from({ length: 50 }).map((_, i) => {
+            return (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={i}
+                src="/logo.png"
+                alt=""
+                className="w-20 h-20 object-contain select-none"
+              />
+            );
+          })}
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none"></div>
@@ -227,6 +232,7 @@ export default async function BoardMemberPage({
             */}
             <div className="w-full h-[400px] md:h-[550px] overflow-hidden border-8 border-white shadow-xl mb-8 bg-gray-200 flex-shrink-0 relative group rounded-2xl flex items-center justify-center">
               {member.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={member.image}
                   alt={member.name}

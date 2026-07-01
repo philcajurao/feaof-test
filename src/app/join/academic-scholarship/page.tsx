@@ -13,7 +13,7 @@ export default function Join() {
       </h2> */}
 
             <iframe
-                className="mt-8 h-[calc(100svh-4rem)] h-auto overflow-y-hidden"
+                className="my-20 h-[calc(100svh-4rem)] h-auto overflow-y-hidden"
                 src="https://api.leadconnectorhq.com/widget/form/sm8S1iZ6ePCh8V8PZoNK"
                 style={{ overflowY: "hidden" }}
                 id="inline-sm8S1iZ6ePCh8V8PZoNK"

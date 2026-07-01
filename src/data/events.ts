@@ -1,7 +1,6 @@
 // 1. Import the image at the top
 import galaImage from "@/app/assets/events/GALA.jpg";
 import summerBootCamp from "@/app/assets/events/summerBootCamp.png";
-import pickleball from "@/app/assets/events/pickleball.jpg";
 
 export interface EventData {
     id: string;

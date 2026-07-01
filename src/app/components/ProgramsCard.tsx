@@ -1,11 +1,10 @@
 "use client"
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 import image1 from "../assets/latest_events/fe5.jpg";
 import image2 from "../assets/latest_events/create.jpg";
-import image3 from "../assets/latest_events/sm.jpeg";
 import image4 from "../assets/latest_events/ads.jpg";
 import image5 from "../assets/latest_events/interest.jpg"; 
 import image6 from "../assets/latest_events/scholar.jpg";  
@@ -83,7 +82,7 @@ export default function ProgramsCard() {
 
   interface ProgramType {
     title: string;
-    image: any;
+    image: StaticImageData;
     colorClass: string;
     href?: string;
   }

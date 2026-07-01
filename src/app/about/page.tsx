@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import CompanyStory from "../components/CompanyStory";
 import MissionVision from "../components/MissionVision";
 import StoryBanner from "../components/banners/StoryBanner";
-import { Lightbulb, Rocket, Target, TrendingUp, Users, Briefcase, User } from "lucide-react";
+import { Lightbulb, Rocket, Target, TrendingUp, Users, Briefcase } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Future Entrepreneurs Of America Foundation",
@@ -119,9 +120,11 @@ export default function About() {
                     className="bg-white p-8 rounded-3xl shadow-sm border-2 border-neutral/50 flex flex-col items-center text-center group hover:border-neutral-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="w-36 h-36 rounded-full overflow-hidden mb-6 border-4 border-neutral-50 bg-neutral-100">
-                      <img 
+                      <Image 
                         src={member.image} 
                         alt={member.name}
+                        width={144}
+                        height={144}
                         className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-300"
                       />
                     </div>
@@ -146,9 +149,11 @@ export default function About() {
                     className="bg-white p-8 rounded-3xl shadow-sm border-2 border-neutral/50 flex flex-col items-center text-center group hover:border-neutral-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-neutral-50 bg-neutral-100">
-                      <img 
+                      <Image 
                         src={member.image} 
                         alt={member.name}
+                        width={128}
+                        height={128}
                         className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-300"
                       />
                     </div>
@@ -166,16 +171,21 @@ export default function About() {
             <div className="bg-white rounded-3xl p-10 shadow-sm border-2 border-neutral/50">
               <h4 className="text-2xl font-bold text-center text-neutral-900 mb-10">Youth Advisory Board</h4>
               
-              {/* Sol Sanchez - Youth Program Leader Card */}
+              {/* Sol Sanchez - Board Member Card */}
               <div className="flex flex-col md:flex-row items-center gap-8 bg-neutral-50 p-6 md:p-8 rounded-2xl border border-neutral/50 max-w-3xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row items-center gap-8 w-full">
-                  <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white bg-neutral-100 flex-shrink-0 flex items-center justify-center text-neutral-400">
-                    <User className="w-12 h-12" />
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white bg-neutral-100 flex-shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/board/sol-sanchez.jpg"
+                      alt="Sol Sanchez"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1 text-center md:text-left">
                     <span className="text-lg font-bold text-neutral-900 mb-1 block">Youth Program Leader</span>
                     <h5 className="text-xs font-semibold text-neutral-400 mb-3 uppercase tracking-wider">Sol Sanchez</h5>
-                    <p className="text-neutral text-sm leading-relaxed">Dedicated to developing future leaders, guiding creative projects, and coordinating youth workshops to help young people discover their potential beyond traditional academics.</p>
+                    <p className="text-neutral text-sm leading-relaxed">Sol Sanchez is an entrepreneur at a very young age. She co-owns La Pulpería HN504 in Springfield, Virginia, and founded Sol&apos;s Digital Co., a digital branding agency. She began with Future Entrepreneurs of America Foundation as a volunteer translator and now leads the organization&apos;s youth e-newsletter on financial literacy and entrepreneurship and the youngest board member in the organization.</p>
                   </div>
                 </div>
               </div>

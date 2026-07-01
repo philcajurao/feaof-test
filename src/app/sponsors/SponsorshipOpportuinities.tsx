@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react";
+import { Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 // --- Static Asset Imports ---
-import fhLogo from "@/app/assets/sponsors/FHC-black.png";
 import fhGrowthFundLogo from "@/app/assets/partners/fhGrowthFund.png";
 import fortuneLogo from "@/app/assets/sponsors/fts-full-black.png";
 import qr from "../assets/qr/donateQR.png";
@@ -16,7 +16,7 @@ const programs = [
   {
     title: "Youth Entrepreneurship Bootcamps",
     description: "Kids showcase their products and services in a festival type event. There would be various event vendors and would be expecting around 500 attendees.",
-    image: "/events/summer_bootcamp_2025/IMG_0084.JPEG",
+    image: "/events/summer_bootcamp/2025/IMG_0084.JPEG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
@@ -36,7 +36,7 @@ const programs = [
   {
     title: "Community Outreach Programs",
     description: "It’s a community event wherein we invite our sponsors to mingle and socialize with our community and have some fun in a little “Community Auction Fundraising”",
-    image: "/events/outreach images/DSC08222.JPG",
+    image: "/events/outreach images/2025/DSC08222.JPG",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -183,7 +183,7 @@ const singleEventTiers = [
   },
 ];
 
-const CheckIcon = ({ highlight }: { highlight?: boolean }) => (
+const CheckIcon = () => (
   <svg className="h-5 w-5 shrink-0 mr-3 mt-0.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
   </svg>
@@ -195,8 +195,20 @@ const StarIcon = () => (
   </svg>
 );
 
-export default function SponsorshipOpportunities() {
-  const [activeTab, setActiveTab] = useState<"sponsors" | "packages">("sponsors");
+
+// Inner component that uses useSearchParams (must be wrapped in Suspense)
+function SponsorshipOpportunitiesInner() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
+  const activeTab: "sponsors" | "packages" = tabParam === "packages" ? "packages" : "sponsors";
+
+  const setActiveTab = (tab: "sponsors" | "packages") => {
+    // Use replace so switching tabs doesn't add browser history entries
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab);
+    router.replace(`/sponsors?${params.toString()}`, { scroll: false });
+  };
 
   // Reconfigured partners object array to support typography logos dynamically
   const partners = [
@@ -336,7 +348,7 @@ export default function SponsorshipOpportunities() {
                     <ul className="space-y-4 mb-10 flex-1">
                       {tier.features.map((feature, fIdx) => (
                         <li key={fIdx} className="flex items-start">
-                          <CheckIcon highlight={tier.highlight} />
+                          <CheckIcon />
                           <span className={`text-sm leading-snug font-bold ${tier.highlight ? 'text-white/90' : 'text-base-content/90'}`}>
                             {feature}
                           </span>
@@ -489,3 +501,12 @@ export default function SponsorshipOpportunities() {
     </div>
   );
 }
+
+// Suspense wrapper required by Next.js when using useSearchParams in a client component
+export default function SponsorshipOpportunities() {
+  return (
+    <Suspense fallback={null}>
+      <SponsorshipOpportunitiesInner />
+    </Suspense>
+  );
+}
