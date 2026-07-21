@@ -62,7 +62,7 @@ export default function GalaModal({ onClose }: GalaModalProps) {
             <div className="md:absolute md:inset-0 p-8 md:p-12 flex flex-col overflow-y-auto">
 
               <div>
-                <div className="badge badge-accent badge-lg font-bold uppercase tracking-wider mb-4 border-none text-white shadow-md h-14">
+                <div className="badge badge-accent badge-lg font-bold uppercase tracking-wider mb-4 border-none text-white shadow-md h-auto min-h-14 py-3 px-6 whitespace-normal text-center">
                   October 17, 2026 &nbsp;·&nbsp; Black-Tie Gala
                 </div>
 

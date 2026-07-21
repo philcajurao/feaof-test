@@ -5,7 +5,7 @@ import Image from "next/image";
 import CompanyStory from "../components/CompanyStory";
 import MissionVision from "../components/MissionVision";
 import StoryBanner from "../components/banners/StoryBanner";
-import { Lightbulb, Rocket, Target, TrendingUp, Users, Briefcase } from "lucide-react";
+import { Lightbulb, Rocket, TrendingUp, Users, Briefcase } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Future Entrepreneurs Of America Foundation",
