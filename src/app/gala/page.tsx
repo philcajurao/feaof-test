@@ -257,12 +257,9 @@ export default function GalaLandingPage() {
       {/* ─── SECTION 2: HERO CARD ─── very light tint */}
       <section className="w-full bg-base-200/30 py-16 px-6 sm:px-10 lg:px-16 flex flex-col items-center fade-in">
         <div className="card w-full max-w-4xl bg-base-100 shadow-2xl overflow-hidden rounded-3xl border border-base-200">
-          <div
-            onClick={() => setSelectedPhoto({ url: "/events/gala-to-remember.png", alt: "Official Black-Tie Gala Event Flyer Poster" })}
-            className="relative p-6 sm:p-12 pb-16 sm:pb-20 overflow-hidden min-h-[240px] sm:min-h-[280px] cursor-pointer group"
-          >
+          <div className="relative p-6 sm:p-12 pb-16 sm:pb-20 overflow-hidden min-h-[240px] sm:min-h-[280px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/events/gala/2025/_DSC6430.JPG" alt="FEOAF Gala" className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+            <img src="/events/gala/2025/_DSC6430.JPG" alt="FEOAF Gala" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 bg-black/80" />
             <div className="relative z-10 max-w-2xl flex flex-col items-start">
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent sm:bg-accent sm:border-none backdrop-blur-sm text-white sm:text-neutral font-black uppercase tracking-wider text-[10px] sm:text-xs mb-3 shadow-lg">
@@ -315,19 +312,11 @@ export default function GalaLandingPage() {
                     </svg>
                   </button>
                 </Link>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    onClick={() => setSelectedPhoto({ url: "/events/gala-to-remember.png", alt: "Official Black-Tie Gala Event Flyer Poster" })}
-                    className="btn btn-outline btn-neutral font-bold w-full h-10 sm:h-12 rounded-2xl text-xs sm:text-sm shadow-md uppercase tracking-wider hover:bg-neutral hover:text-white"
-                  >
-                    View Flyer 🔍
+                <a href="#sponsorship-packages" className="w-full">
+                  <button className="btn btn-accent text-neutral font-black w-full h-12 sm:h-14 rounded-2xl text-sm sm:text-base shadow-xl flex items-center justify-center gap-2 uppercase tracking-widest hover:brightness-105 transition-all">
+                    Be A Sponsor
                   </button>
-                  <a href="#sponsorship-packages" className="w-full">
-                    <button className="btn btn-neutral text-white font-bold w-full h-10 sm:h-12 rounded-2xl text-xs sm:text-sm shadow-md uppercase tracking-wider">
-                      Sponsorships
-                    </button>
-                  </a>
-                </div>
+                </a>
               </div>
             </div>
           </div>
