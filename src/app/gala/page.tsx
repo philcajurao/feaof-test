@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const GALA_PHOTOS = [
   { url: "/events/gala/2025/_DSC6430.JPG", alt: "Black-Tie Gala Evening Showcase" },
@@ -17,11 +18,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const StarIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-accent shrink-0 mt-1 mr-2">
-    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-  </svg>
-);
+
 
 function getTimeLeft(targetDate: Date) {
   const now = new Date();
@@ -42,6 +39,7 @@ interface SponsorshipPackage {
   exclusive?: boolean;
   tagline?: string;
   benefits: string[];
+  formUrl?: string;
 }
 
 const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
@@ -51,6 +49,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     price: "$10,000",
     exclusive: true,
     tagline: "Become the title sponsor of the evening.",
+    formUrl: "/gala/presenting-sponsor",
     benefits: [
       'Exclusive "Presented by" recognition on all event materials',
       "Premier logo placement on event signage, website, and marketing",
@@ -69,6 +68,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "diamond",
     name: "DIAMOND SPONSOR",
     price: "$5,000",
+    formUrl: "/gala/diamond-sponsor",
     benefits: [
       "VIP table for 8 guests",
       "Prominent logo placement on event materials",
@@ -85,6 +85,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "platinum",
     name: "PLATINUM SPONSOR",
     price: "$2,500",
+    formUrl: "/gala/platinum-sponsor",
     benefits: [
       "Reserved table for 8 guests",
       "Half-page advertisement in the gala program",
@@ -99,6 +100,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "gold",
     name: "GOLD SPONSOR",
     price: "$1,500",
+    formUrl: "/gala/gold-sponsor",
     benefits: [
       "Four (4) Gala Tickets",
       "Quarter-page advertisement in the program",
@@ -112,6 +114,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "silver",
     name: "SILVER SPONSOR",
     price: "$750",
+    formUrl: "/gala/silver-sponsor",
     benefits: [
       "Two (2) Gala Tickets",
       "Business name listed in the gala program",
@@ -123,6 +126,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "bronze",
     name: "BRONZE SPONSOR",
     price: "$500",
+    formUrl: "/gala/bronze-sponsor",
     benefits: [
       "Two (2) Gala Tickets",
       "Business name listed in the gala program",
@@ -133,6 +137,7 @@ const MAIN_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "community",
     name: "Community Sponsor",
     price: "$250",
+    formUrl: "/gala/community-sponsor",
     benefits: [
       "Name listed in the gala program",
       "Recognition on the event website",
@@ -146,6 +151,7 @@ const NATIONAL_IMPACT_PARTNERS: SponsorshipPackage[] = [
     id: "national-impact",
     name: "National Impact Partner",
     price: "$3,000",
+    formUrl: "/gala/national-impact-partner",
     benefits: [
       "All benefits in National Community Partner plus stage company recognition, premium logo placement, featured newsletter spotlight for 6 editions, year-round recognition on the FEOAF website.",
     ],
@@ -154,6 +160,7 @@ const NATIONAL_IMPACT_PARTNERS: SponsorshipPackage[] = [
     id: "national-community",
     name: "National Community Partner",
     price: "$1,000",
+    formUrl: "/gala/national-community-partner",
     benefits: ["Logo on websites, social media recognition, digital program listing, certificate."],
   },
 ];
@@ -163,6 +170,7 @@ const SPECIALIZED_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "table-sponsor",
     name: "Table Sponsor",
     price: "$1,500",
+    formUrl: "/gala/table-sponsor",
     benefits: [
       "Reserved table for 8 guests",
       "Company logo displayed at the sponsored table",
@@ -173,6 +181,7 @@ const SPECIALIZED_SPONSORSHIPS: SponsorshipPackage[] = [
     id: "youth-scholarship",
     name: "Youth Scholarship Sponsor",
     price: "$1,000",
+    formUrl: "/gala/youth-scholarship-sponsor",
     benefits: ["Help provide scholarships for youth to participate in entrepreneurship programs."],
   },
 ];
@@ -208,10 +217,19 @@ function SectionLabel({ label }: { label: string }) {
 }
 
 export default function GalaLandingPage() {
+  const router = useRouter();
   const targetDate = useMemo(() => new Date("2026-10-17T18:30:00"), []);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [selectedPackage, setSelectedPackage] = useState<SponsorshipPackage | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState<{ url: string; alt: string } | null>(null);
+
+  const handleSelectPackage = (pkg: SponsorshipPackage) => {
+    if (pkg.formUrl) {
+      router.push(pkg.formUrl);
+    } else {
+      setSelectedPackage(pkg);
+    }
+  };
 
   useEffect(() => {
     const checkTime = () => setTimeLeft(getTimeLeft(targetDate));
@@ -354,79 +372,7 @@ export default function GalaLandingPage() {
         </div>
       </section>
 
-      {/* SECTION DIVIDER */}
-      <div className="w-full h-1 bg-accent opacity-60" />
 
-      {/* ─── SECTION 4: EVENT TICKETS ─── white */}
-      <section className="w-full bg-base-100 py-20 px-4 sm:px-6 flex flex-col items-center gap-10 fade-in">
-        <div className="w-full max-w-7xl flex flex-col items-center gap-10">
-          <div className="text-center">
-            <SectionLabel label="Gala Ticket Options" />
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral uppercase">
-              Event <span className="text-accent">Tickets</span>
-            </h2>
-            <div className="h-1.5 w-24 bg-accent rounded-full mx-auto mt-4" />
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto w-full items-stretch">
-            {/* General Admission */}
-            <div className="card rounded-xl bg-white text-base-content border-2 border-neutral/30 shadow-2xl hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(var(--tw-colors-accent),0.5)] transition-all duration-300 h-full">
-              <div className="card-body p-8 lg:p-10 flex flex-col">
-                <div className="mb-6 border-b-2 border-current pb-6 opacity-80">
-                  <h3 className="card-title text-2xl font-black mb-2 uppercase italic text-neutral">GENERAL ADMISSION</h3>
-                  <p className="text-sm tracking-wider font-bold text-base-content/80">Standard Gala Ticket</p>
-                </div>
-                <div className="mb-8 flex items-baseline">
-                  <span className="text-5xl font-black text-neutral">$150</span>
-                  <span className="font-black ml-2 uppercase text-sm text-base-content/60">/ ticket</span>
-                </div>
-                <ul className="space-y-4 mb-10 flex-1">
-                  {["Gourmet Dinner Service", "Silent Auction & Raffle Access", "Live Music & Dancing", "Entertainment & Celebration", "Youth Business Showcase"].map((f, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckIcon />
-                      <span className="text-sm leading-snug font-bold text-base-content/90">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="card-actions mt-auto">
-                  <Link href="https://givebutter.com/c/X0GXZ6?source=qr&version=1" target="_blank" className="btn btn-block btn-outline btn-neutral text-neutral shadow-md hover:bg-accent hover:text-neutral hover:scale-[1.02] rounded-md font-black uppercase text-base h-14">
-                    Buy Ticket ($150)
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* VIP Ticket */}
-            <div className="card rounded-xl bg-neutral/98 text-white shadow-2xl border-none scale-100 lg:scale-105 z-10 h-full relative">
-              <div className="absolute top-0 inset-x-0 flex justify-center -translate-y-1/2">
-                <span className="badge badge-accent border-none font-black py-4 px-6 uppercase tracking-widest shadow-lg text-neutral">VIP Access</span>
-              </div>
-              <div className="card-body p-8 lg:p-10 flex flex-col pt-12">
-                <div className="mb-6 border-b-2 border-current pb-6 opacity-80">
-                  <h3 className="card-title text-2xl font-black mb-2 uppercase italic text-white">VIP TICKET</h3>
-                  <p className="text-sm tracking-wider font-bold text-white/80">Premium Gala Experience</p>
-                </div>
-                <div className="mb-8 flex items-baseline">
-                  <span className="text-5xl font-black text-accent">$175</span>
-                  <span className="font-black ml-2 uppercase text-sm text-white/60">/ ticket</span>
-                </div>
-                <ul className="space-y-4 mb-10 flex-1">
-                  {["Preferred VIP Priority Seating", "Gourmet Dinner & VIP Toast", "Exclusive VIP Gift / Souvenir", "Full Silent Auction Access", "Live Music & Celebration Showcase"].map((f, i) => (
-                    <li key={i} className="flex items-start">
-                      <StarIcon />
-                      <span className="text-sm leading-snug font-bold text-white/90">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="card-actions mt-auto">
-                  <Link href="https://givebutter.com/c/X0GXZ6?source=qr&version=1" target="_blank" className="btn btn-block btn-accent shadow-[0_0_15px_rgba(var(--tw-colors-accent),0.4)] text-neutral hover:scale-[1.02] rounded-md font-black uppercase text-base h-14">
-                    Buy VIP Ticket ($175)
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── SECTION 5: MAIN SPONSORSHIP TIERS ─── soft tinted band */}
       <section id="sponsorship-packages" className="w-full bg-base-200/50 py-20 px-4 sm:px-6 flex flex-col items-center gap-10 fade-in">
@@ -471,7 +417,7 @@ export default function GalaLandingPage() {
                   </ul>
                   <div className="card-actions mt-auto">
                     <button
-                      onClick={() => setSelectedPackage(pkg)}
+                      onClick={() => handleSelectPackage(pkg)}
                       className={`btn btn-block rounded-md font-black uppercase text-base h-14 ${pkg.exclusive
                         ? "btn-accent shadow-[0_0_15px_rgba(var(--tw-colors-accent),0.4)] text-neutral hover:scale-[1.02]"
                         : "btn-outline btn-neutral text-neutral shadow-md hover:bg-accent hover:text-neutral hover:scale-[1.02]"}`}
@@ -518,7 +464,7 @@ export default function GalaLandingPage() {
                     ))}
                   </ul>
                   <div className="card-actions mt-auto">
-                    <button onClick={() => setSelectedPackage(pkg)} className="btn btn-block btn-accent text-neutral shadow-md hover:brightness-105 hover:scale-[1.02] rounded-md font-black uppercase text-base h-14">
+                    <button onClick={() => handleSelectPackage(pkg)} className="btn btn-block btn-accent text-neutral shadow-md hover:brightness-105 hover:scale-[1.02] rounded-md font-black uppercase text-base h-14">
                       Select Package
                     </button>
                   </div>
@@ -635,16 +581,26 @@ export default function GalaLandingPage() {
                   ))}
                 </ul>
                 <div className="pt-6 border-t border-base-200 flex flex-col gap-3">
-                  <Link href="https://givebutter.com/c/X0GXZ6?source=qr&version=1" target="_blank" className="w-full">
-                    <button className="btn btn-accent w-full py-4 h-auto rounded-2xl text-base font-black text-neutral uppercase tracking-wider shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
-                      Pay Online via Givebutter
-                    </button>
-                  </Link>
-                  <a href={`mailto:feoafoundation@gmail.com?subject=Sponsorship Inquiry: ${encodeURIComponent(selectedPackage.name)}`} className="w-full">
-                    <button className="btn btn-neutral w-full py-3.5 h-auto rounded-2xl text-sm font-bold text-white uppercase tracking-wider">
-                      Request Invoice via Email
-                    </button>
-                  </a>
+                  {selectedPackage.formUrl ? (
+                    <Link href={selectedPackage.formUrl} className="w-full">
+                      <button className="btn btn-accent w-full py-4 h-auto rounded-2xl text-base font-black text-neutral uppercase tracking-wider shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                        Register & Pay via Form
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link href="https://givebutter.com/c/X0GXZ6?source=qr&version=1" target="_blank" className="w-full">
+                      <button className="btn btn-accent w-full py-4 h-auto rounded-2xl text-base font-black text-neutral uppercase tracking-wider shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                        Pay Online via Givebutter
+                      </button>
+                    </Link>
+                  )}
+                  {!selectedPackage.name.includes("Program Book Sponsor") && (
+                    <a href={`mailto:feoafoundation@gmail.com?subject=Sponsorship Inquiry: ${encodeURIComponent(selectedPackage.name)}`} className="w-full">
+                      <button className="btn btn-neutral w-full py-3.5 h-auto rounded-2xl text-sm font-bold text-white uppercase tracking-wider">
+                        Request Invoice via Email
+                      </button>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
